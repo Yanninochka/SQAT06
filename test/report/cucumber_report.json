@@ -1,0 +1,73 @@
+[
+  {
+    "description": "  In order to do maths\n  As a developer\n  I want to increment variables",
+    "keyword": "Feature",
+    "name": "Simple maths",
+    "line": 1,
+    "id": "simple-maths",
+    "tags": [],
+    "uri": "features\\scenario.feature",
+    "elements": [
+      {
+        "id": "simple-maths;easy-maths",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "easy maths",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I go to duck duck go",
+            "match": {
+              "location": "features\\support\\steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5750000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I search for WebdriverIO",
+            "match": {
+              "location": "features\\support\\steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3306000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "I should see the search results",
+            "match": {
+              "location": "features\\support\\steps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 52000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "features\\support\\hooks.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 84000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
