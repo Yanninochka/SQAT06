@@ -5,33 +5,7 @@ const should = chai.should()
 "use strict";
 
 
-Given('I go to duck duck go', function(callback) {
-  this.browser
-    .init()
-    .url('https://duckduckgo.com/').then(function() {
-      callback();
-    })
-})
-
-When('I search for WebdriverIO', function(callback) {
-  this.browser
-    .setValue('#search_form_input_homepage', 'WebdriverIO')
-    .click('#search_button_homepage').then(function(){
-      callback();
-    })
-})
-
-Then('I should see the search results', function(callback) {
-  this.browser
-    .getTitle().then(function(result){
-        result.should.equal("WebdriverIO at DuckDuckGo");
-        callback();
-  }).catch(function(error){
-    callback(error);
-  })
-})
-
-Given('I go to figure1', function(callback) {
+Given('I go to Figure1', function(callback) {
   this.browser
     .init()
     .url('https://app.figure1.com/account/register').then(function() {
@@ -39,15 +13,15 @@ Given('I go to figure1', function(callback) {
     })
 })
 
-When('I sign up with valid credentials', function(callback) {
+When('I regester and go into', function(callback) {
   this.browser
-    .waitForVisible('.register-page__username-input')
-    .setValue('.register-pag__username-input', 'ghjghjsdfgjdfgdfjh')
-    .setValue('.register-page__email-input', 'ghjghjsdfgjdfgdfjh@gmail.com')
-    .setValue('.register-page__password-input', 'ghjghjsdfgjdfgdfjh')
-    .setValue('.register-page__confirm-password-input', 'ghjghjsdfgjdfgdfjh')
+    .waitForVisible('.register-page__username-input',5000)
+    .setValue('.register-page__username-input',Math.random().toString(36).substring(7))
+    .setValue('.register-page__email-input', Math.random().toString(36).substring(2,11) + '@gmail.com')
+    .setValue('.register-page__password-input ', '101010')
+    .setValue('.register-page__confirm-password-input', '101010')
     .addValue('.register-page__specialties-list', 'Physician')
-    .addValue('.register-page__specialties-other-list', 'Anesthesiology')
+    .addValue('.register-page__specialties-other-list', 'Cardiology')
     .scroll('.register-page__terms-checkbox')
     .click('.register-page__terms-checkbox')
     .click('.register-page__submit-button')
@@ -58,5 +32,22 @@ When('I sign up with valid credentials', function(callback) {
   })
 })
 
+Then('I should see confirm Figure1', function(callback) {
+  this.browser
+  .waitForVisible(".feed-wrapper",5000)
+  .isVisible(".feed-wrapper").then(function(result){
+        result.should.be.true;
+        callback();
+  }).catch(function(error){
+    callback(error);
+  })
+})
 
-
+// Then('I should see confirm Figure1', function(callback) {
+//   this.browser
+//    .getTitle().then(function(result){
+//         result.should.equal("Figure 1");
+//         callback();
+//   }).catch(function(error){
+//     callback(error);
+//   })})
